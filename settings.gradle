@@ -1,0 +1,12 @@
+rootProject.name = 'ProjectPlantation'
+
+include 'basic'
+
+include 'server'
+
+include 'core'
+
+include 'dbcore'
+
+include 'pushserver'
+

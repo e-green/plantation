@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <context:component-scan base-package="org.egreen.plantation"/>
+
+
+
+
+    <!--<bean name="DB_OPTIONS"  class="org.egreen.plantation.OptionsImpl">-->
+        <!--<constructor-arg value="options.properties"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="DB_NAME" class="java.lang.String">-->
+        <!--<constructor-arg>-->
+            <!--<value>white_cow_78263</value>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <bean name="WEB_SOCKET_PATH" class="java.lang.String">
+        <constructor-arg>
+            <value>ws://localhost:8091/</value>
+        </constructor-arg>
+    </bean>
+
+</beans>
