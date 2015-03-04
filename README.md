@@ -8,15 +8,15 @@ A short, permissive software license. Basically, you can do whatever you want as
 
 
 Can
- Modify 
- Distribute 
- Sublicense 
- Private Use 
+ * Modify 
+ * Distribute 
+ * Sublicense 
+ * Private Use 
 
 Cannot
- Hold Liable 
- Commercial Use 
+ * Hold Liable 
+ * Commercial Use 
 
 Must
- Include Copyright 
- Include License 
+ * Include Copyright 
+ * Include License 
