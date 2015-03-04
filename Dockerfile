@@ -25,6 +25,7 @@ WORKDIR /data
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN cd /data
+RUN ls
 RUN ./gradlew
 
 
