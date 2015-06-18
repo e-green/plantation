@@ -1,7 +1,7 @@
 # plantation
-Basic Cloud API Builder
+OpenSource way to build realtime data server
 
-# Getting Start
+## Getting Start
 
 pre request
   
@@ -24,12 +24,12 @@ pre request
         
     ```
 5. Usefull Links
-    -- Setup              - http://localhost:8090/api/setup <POST method>
-    -- Subscribe          - http://localhost:8090/api/push/<ENTITY>
-    -- Web Socket Listner - ws://localhost:8091/bind/<ENTITY>
+    - Setup              - http://localhost:8090/api/setup <POST method>
+    - Subscribe          - http://localhost:8090/api/push/<ENTITY>
+    - Web Socket Listner - ws://localhost:8091/bind/<ENTITY>
 
 
-# licence 
+## licence 
 Quick Summary
 A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license in their respective sources.
 
