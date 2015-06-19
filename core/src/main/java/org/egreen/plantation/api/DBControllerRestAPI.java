@@ -15,7 +15,9 @@ import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -56,11 +58,20 @@ public class DBControllerRestAPI implements Serializable {
      * @return
      */
     @GET
-    @Path("all/{limit}/{offset}")
+    @Path("all/{child}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String all(@PathParam("limit") String limit, @PathParam("offset") String offset) {
-        DataPacket packet = null;//dbController.get(dataPacket);
-        return packet.getRow() + "";
+    public List<DataPacket> all(@PathParam("child") String child, InputStream inputStream) {
+
+        Map<String, Object> dataMap = null;
+        try {
+            dataMap = js.getDataMap(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        DataPacket dataPacket = new DataPacket(child, dataMap);
+        List<DataPacket> packets = dbController.query(dataPacket);
+        return packets;
     }
 
 
@@ -105,6 +116,7 @@ public class DBControllerRestAPI implements Serializable {
         DataPacket dataPacket = new DataPacket(child, dataMap);
         Object process = dbController.saveUpdateDataPacket(dataPacket);
         dataPacket.getRow().put("id", process);
+        dataPacket.getRow().put("_createtime", Calendar.getInstance().getTimeInMillis());
 
         try {
             JSONObject jsonObject = new JSONObject(dataPacket.getRow());// Send Object

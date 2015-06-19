@@ -2,7 +2,12 @@ package org.egreen.plantation.api;
 
 import com.rethinkdb.RethinkDB;
 import com.rethinkdb.RethinkDBConnection;
+import com.rethinkdb.ast.query.RqlQuery;
+import com.rethinkdb.ast.query.RqlUtil;
 import com.rethinkdb.ast.query.gen.DB;
+import com.rethinkdb.model.RqlFunction;
+import com.rethinkdb.model.RqlFunction2;
+import com.rethinkdb.proto.Q2L;
 import com.rethinkdb.response.model.DMLResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +19,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +53,20 @@ public class DBController implements Serializable {
     }
 
 
-    public List<DataPacket> query(Query query) {
+    /**
+     *
+     * @return
+     */
+    public List<DataPacket> query(DataPacket dataPacket) {
+
+//        RqlQuery rqlQuery=RqlQuery.R.
+//        r.table(dataPacket.getTablename())
+//                .filter(rqlQuery);
+
+
+
+
+
         return null;
     }
 

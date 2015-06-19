@@ -1,47 +1,29 @@
 package org.egreen.plantation.api;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dewmal on 3/2/15.
  */
 public class Query {
 
-    private int limit;
-    private int start;
+    private long offest;
+    private long limit;
     private String order;
+    private String query;
 
-
-    public int getLimit() {
-        return limit;
+    public Query(String query) {
+        this.query = query;
     }
 
-    public void setLimit(int limit) {
-        this.limit = limit;
+    public Query(Map<String, Object> dataMap) {
+        offest = (long) dataMap.getOrDefault("start", 0);
+        limit = (long) dataMap.getOrDefault("limit", 10);
+        order = (String) dataMap.getOrDefault("order", "_createtime");
+        query = (String) dataMap.getOrDefault("query", null);
+        query = (String) dataMap.getOrDefault("query", null);
     }
 
-    public int getStart() {
-        return start;
-    }
 
-    public void setStart(int start) {
-        this.start = start;
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public class Where {
-        private String feild;
-        private String query;
-        private String condition;
-
-
-    }
 
 }
