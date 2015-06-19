@@ -1,7 +1,8 @@
 # plantation
 
 ![logo](https://raw.githubusercontent.com/e-green/plantation/master/plantation_logo.png)
-OpenSource way to build realtime data server
+
+**OpenSource way to build real time data server**
 
 ## Getting Start
 
