@@ -2,3 +2,5 @@
 .idea
 gradle
 logs
+*/build
+dbcore/build

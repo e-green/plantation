@@ -62,11 +62,6 @@ public class DBController implements Serializable {
 //        RqlQuery rqlQuery=RqlQuery.R.
 //        r.table(dataPacket.getTablename())
 //                .filter(rqlQuery);
-
-
-
-
-
         return null;
     }
 
