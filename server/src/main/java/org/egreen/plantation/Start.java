@@ -41,7 +41,7 @@ public class Start {
 
         HttpServer server = new HttpServer();
       //  server.
-        NetworkListener listener = new NetworkListener("grizzly2", "localhost", 8090);
+        NetworkListener listener = new NetworkListener("grizzly2", "0.0.0.0", 8090);
         server.addListener(listener);
 
         // Initialize and add Spring-aware Jersey resource
@@ -63,7 +63,7 @@ public class Start {
         ctx.addListener("org.springframework.web.context.request.RequestContextListener");
 
 
-        Server wsServer = new Server("localhost", 8091, "/", null, DataEndpoint.class);
+        Server wsServer = new Server("0.0.0.0", 8091, "/", null, DataEndpoint.class);
         wsServer.start();
         ctx.deploy(server);
         try {
