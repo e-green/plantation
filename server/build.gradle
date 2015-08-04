@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'gradle-one-jar'
+apply plugin: 'executable-jar'
+
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -21,20 +22,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+        classpath 'net.nisgits.gradle:gradle-executable-jar-plugin:1.7.0'
     }
 }
 
-mainClassName = 'org.egreen.plantation.Start'
-task execute(type:JavaExec) {
-   main = 'org.egreen.plantation.Start'
-   classpath = sourceSets.main.runtimeClasspath
-}
-task createServerJar(type: OneJar) {
-    mainClass = 'org.egreen.plantation.Start'
-}
-
-task copyRuntimeLibs(type: Copy) {
-    into "lib"
-    from configurations.testRuntime - configurations.runtime
-}
+mainClass = 'org.egreen.plantation.Start'
