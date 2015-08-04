@@ -1,9 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
-plugins {
-    id "us.kirchmeier.capsule" version "1.0-rc1"
-}
-
+apply plugin: 'gradle-one-jar'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -24,10 +21,18 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.nisgits.gradle:gradle-executable-jar-plugin:1.7.0'
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
     }
 }
-task fatCapsule(type: FatCapsule) {
-    applicationClass 'org.egreen.plantation.Start'
+
+mainClassName = 'org.egreen.plantation.Start'
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.egreen.plantation.Start'
+    }
 }
-mainClass = 'org.egreen.plantation.Start'
+
+task copyRuntimeLibs(type: Copy) {
+    into "lib"
+    from configurations.testRuntime - configurations.runtime
+}
