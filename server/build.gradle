@@ -26,3 +26,7 @@ buildscript {
 }
 
 mainClassName = 'org.egreen.plantation.Start'
+
+task createServerJar(type: OneJar) {
+    mainClass = 'org.egreen.plantation.Start'
+}
