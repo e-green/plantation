@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'executable-jar'
+plugins {
+    id "us.kirchmeier.capsule" version "1.0-rc1"
+}
 
 
 sourceCompatibility = 1.8
@@ -25,5 +27,7 @@ buildscript {
         classpath 'net.nisgits.gradle:gradle-executable-jar-plugin:1.7.0'
     }
 }
-
+task fatCapsule(type: FatCapsule) {
+    applicationClass 'org.egreen.plantation.Start'
+}
 mainClass = 'org.egreen.plantation.Start'
