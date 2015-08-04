@@ -24,8 +24,9 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by dewmal on 2/24/15.
  */
-@Component
+
 @Path("/")
+@Component
 public class DBControllerRestAPI implements Serializable {
 
     private static final Logger LOGGER = LogManager.getLogger(DBControllerRestAPI.class);
