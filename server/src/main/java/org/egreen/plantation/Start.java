@@ -10,11 +10,15 @@ import org.glassfish.grizzly.servlet.ServletRegistration;
 import org.glassfish.grizzly.servlet.WebappContext;
 import org.glassfish.tyrus.server.Server;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.websocket.DeploymentException;
+import javax.ws.rs.core.Application;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The sample demonstrates how to make Jersey-Spring
@@ -42,10 +46,19 @@ public class Start {
 
         // Initialize and add Spring-aware Jersey resource
         WebappContext ctx = new WebappContext("ctx", "/api");
-        final ServletRegistration reg = ctx.addServlet("spring", new SpringServlet());
+        SpringServlet springServlet = new SpringServlet();
+        final ServletRegistration reg = ctx.addServlet("spring",springServlet );
+        reg.setInitParameter("com.sun.jersey.config.property.packages","org.egreen.plantation.api");
         reg.addMapping("/*");
+
+
+
+
+
         ctx.addContextInitParameter("contextConfigLocation", "spring-context.xml");
-        ctx.addContextInitParameter("com.sun.jersey.config.property.packages","org.egreen.plantation.api");
+
+        //com.sun.jersey.spi.container.servlet.ServletContainer
+
         ctx.addListener("org.springframework.web.context.ContextLoaderListener");
         ctx.addListener("org.springframework.web.context.request.RequestContextListener");
 

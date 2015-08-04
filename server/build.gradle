@@ -26,13 +26,12 @@ buildscript {
 }
 
 mainClassName = 'org.egreen.plantation.Start'
-jar {
-    manifest {
-        attributes 'Main-Class': 'org.egreen.plantation.Start'
-    }
+task execute(type:JavaExec) {
+   main = 'org.egreen.plantation.Start'
+   classpath = sourceSets.main.runtimeClasspath
+}
+task createServerJar(type: OneJar) {
+    mainClass = 'org.egreen.plantation.Start'
 }
 
-task copyRuntimeLibs(type: Copy) {
-    into "lib"
-    from configurations.testRuntime - configurations.runtime
-}
+
