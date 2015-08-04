@@ -49,7 +49,6 @@ public class Start {
         ctx.addListener("org.springframework.web.context.ContextLoaderListener");
         ctx.addListener("org.springframework.web.context.request.RequestContextListener");
 
-        
 
         Server wsServer = new Server("localhost", 8091, "/", null, DataEndpoint.class);
         wsServer.start();

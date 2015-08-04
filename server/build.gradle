@@ -33,3 +33,8 @@ task execute(type:JavaExec) {
 task createServerJar(type: OneJar) {
     mainClass = 'org.egreen.plantation.Start'
 }
+
+task copyRuntimeLibs(type: Copy) {
+    into "lib"
+    from configurations.testRuntime - configurations.runtime
+}
