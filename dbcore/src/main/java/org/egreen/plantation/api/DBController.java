@@ -49,6 +49,8 @@ public class DBController implements Serializable {
     @PostConstruct
     public void loadDBController() {
         r = RethinkDB.r;
+        System.out.println(dbOptions.getDBHost());
+        System.out.println(dbOptions.getPort());
         con = r.connect(dbOptions.getDBHost(), dbOptions.getPort());
     }
 

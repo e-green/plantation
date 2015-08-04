@@ -17,8 +17,8 @@ public class Query {
     }
 
     public Query(Map<String, Object> dataMap) {
-        offest = (long) dataMap.getOrDefault("start", 0);
-        limit = (long) dataMap.getOrDefault("limit", 10);
+        offest = (Long) dataMap.getOrDefault("start", 0);
+        limit = (Long) dataMap.getOrDefault("limit", 10);
         order = (String) dataMap.getOrDefault("order", "_createtime");
         query = (String) dataMap.getOrDefault("query", null);
         query = (String) dataMap.getOrDefault("query", null);
